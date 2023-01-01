@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bad UI</title>
+	<script src="scripts.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<center>
+		<div class="main-wrapper">
+			<div class="num-wrapper">
+				<div class="output">
+					<output id = "num">(+38) 000 000 00 00</output>
+				</div>
+				
+				<div class="num-range">
+					<input type="range" min="0" max="9999999999" id="numberInput" value="0" onmouseup="resetFocus()">
+				</div>
+			</div>
+			<div class="rotate-wrapper">
+				<div class="checkbox">
+					<input type="checkbox" name="advanced" value="on" id="chbox" oninput="setNumRange()"> Advanced Mode
+				</div>
+				<div class="rotate-range" id="rotate-range">
+					<input type="range" min="-20" max="20" id="rotateInput" value="0" onmouseup="resetFocus()">
+				</div>
+			</div>
+		</div>
+	</center>
+</body>
+</html>
