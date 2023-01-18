@@ -98,3 +98,56 @@
   width: 18px;
   height: 18px;
 } 
+
+.date-planet-wrapper {
+  width: 90%;
+  background: #090200;
+  padding: 30px;
+  margin: 10px;
+  margin-top: 100px;
+}
+
+.ellipse {
+  background-color: none;
+  border:2px solid #7798d4;
+  height: 200px;
+  width: 370px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.sun {
+  width: 40px;
+  height: 40px;
+  background: url('images/sun.jpg') no-repeat;
+  background-size: 100%;
+  transform: rotateX(30deg);
+  border-radius: 50%;
+  filter: blur(5px);
+  /* margin-right: 120px; */
+  /* margin-top: 50px; */
+}
+
+.earth {
+  width: 50px;
+  height: 50px;
+  background: url('images/earth.png') no-repeat;
+  background-size: 100%;
+  transform: rotateX(40deg);
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  left: -22px;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  box-shadow: 0px 0px 20px 0px #000000;
+  z-index: 3;
+  filter: blur(0.5px);
+}

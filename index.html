@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bad UI</title>
-	<script src="scripts.js"></script>
+	<script src="scripts/scripts-phone-number.js"></script>
+	<script src="scripts/scripts-planet-date.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,6 +27,13 @@
 				<div class="rotate-range" id="rotate-range">
 					<input type="range" min="-20" max="20" id="rotateInput" value="0" onmouseup="resetFocus()">
 				</div>
+			</div>
+		</div>
+
+		<div class="date-planet-wrapper">
+			<div class="ellipse" id="ellipse">
+				<div class="sun" id="sun"></div>
+				<div class="earth" id="earth"></div>
 			</div>
 		</div>
 	</center>
