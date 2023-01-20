@@ -41,7 +41,7 @@ function calcA(angle) {
       speed += a;
     } else if ((angle < 0 && speed >= 0) || (angle > 0 && speed <= 0)) {
       // UP
-      a = g * (Math.sin(rads) * frictionCoef / 1.2 * Math.cos(rads));
+      a = g * (Math.sin(rads) * frictionCoef * 1.2 * Math.cos(rads));
 
       speed += a;
     } else if (angle == 0) {
