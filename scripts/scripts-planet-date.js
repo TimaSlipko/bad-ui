@@ -1,4 +1,10 @@
+var planetDate = new Date(2006, 1, 4);
+
 window.addEventListener('load', function () {
+    dateEl = document.getElementById("planet-date");
+
+    setDateElVal(planetDate);
+
     earth = document.getElementById("earth");
     sun = document.getElementById("sun");
     ellipse = document.getElementById("ellipse");
@@ -17,9 +23,9 @@ window.addEventListener('load', function () {
         if (mouseDown === true) {
             H = 200;
             W = 370;
-
-            a = W / 2;
-            b = H / 2;
+            
+            a = H / 2;
+            b = W / 2;
 
             x0 = ellipse.getBoundingClientRect().left + W / 2;
             y0 = ellipse.getBoundingClientRect().top + H / 2;
@@ -27,33 +33,32 @@ window.addEventListener('load', function () {
             x2 = event.clientX - x0;
             y2 = y0 - event.clientY;
 
-            k = y2 / x2;
-
-            if (x2 > 0) {
-                x = 1 / Math.sqrt(1 + Math.pow(k, 2));
-                // x = Math.sqrt(Math.pow(a, 2) / (Math.pow(a, 2) + Math.pow(k, 2) * Math.pow(b, 2)));
-            } else {
-                x = -1 / Math.sqrt(1 + Math.pow(k, 2));
-                // x = -Math.sqrt(Math.pow(a, 2) / (Math.pow(a, 2) + Math.pow(k, 2) * Math.pow(b, 2)));
-            }
             
-            y = k * x;
+            k = y2 / x2;
+            
+            x = b * Math.sqrt(a**2 / (a**2 + k**2 * b**2));
+            
+            y = b * k * Math.sqrt(a**2 / (a**2 + (k**2) * (b**2)));
+                        
+            if (x2 < 0 && y2 <= 0){x = -x}
+            if (x2 < 0 && y2 > 0){x = -x}
+            if (x2 > 0 && y2 > 0){y = -y}
+            if (x2 > 0 && y2 < 0){y = -y}
 
-            // console.log(x, y);
-
-            x1 = x * (W / 2)
-            y1 = y * (H / 2)
-
-            x3 = W / 2 + x1
-            y3 = H / 2 - y1
-
-            // console.log(x1, y1, x3, y3);
-
-            earth.style.left = x3 - 25 + 'px';
-            earth.style.top = y3 - 25 + 'px';
-
-            // earth.style.left = event.clientX - 25 + 'px';
-            // earth.style.top = event.clientY - 25 + 'px';
+            earth.style.left = x + b - 25 + 'px';
+            earth.style.top = y + a - 25 + 'px';
         }
     }
 })
+
+function setDateElVal(date) {
+    dateEl.innerHTML =`<p>${1900 + date.getYear()}-${formatDate2Symbols(date.getMonth())}-${formatDate2Symbols(date.getDate())}</p>`;
+}
+
+function formatDate2Symbols(s) {
+    if (s < 10) {
+        return '0' + s
+    }
+
+    return s
+}

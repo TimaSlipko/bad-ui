@@ -29,8 +29,33 @@ function calcScroll() {
 }
 
 function calcA(angle) {
-  a = 9.8 * (Math.sin(toRadians(angle)));
-  speed += a;
+  g = 9.8;
+  rads = toRadians(angle);
+  frictionCoef = 0.35;
+
+  if (angle < -2 || angle > 2) {
+    if ((angle < 0 && speed <= 0) || (angle > 0 && speed >= 0)) {
+      // console.log("DOWN");
+      a = g * (Math.sin(rads) * frictionCoef * Math.cos(rads));
+
+      speed += a;
+    } else if ((angle < 0 && speed >= 0) || (angle > 0 && speed <= 0)) {
+      // console.log("UP");
+      a = g * (Math.sin(rads) * frictionCoef / 1.2 * Math.cos(rads));
+
+      speed += a;
+    } else if (angle == 0) {
+      if (Math.abs(speed) < 3) {
+        speed = 0;
+      } else {
+        speed *= 0.992;
+      }
+    }
+  } else {
+    speed *= 0.994;
+  }  
+
+  console.log(angle);
 }
 
 function toRadians (angle) {
@@ -40,7 +65,7 @@ function toRadians (angle) {
 function calcSpeed () {
   if (document.getElementById('chbox').checked && document.getElementById('numberInput') != document.activeElement) {
     if (document.getElementById('numberInput').value == 0 || document.getElementById('numberInput').value == 9999999999) {
-      speed *= -0.6;
+      speed *= -0.45;
     }
     calcA(document.getElementById('rotateInput').value);
     

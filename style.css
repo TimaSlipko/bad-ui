@@ -40,7 +40,7 @@
 /* rotate range input */
 
 .rotate-wrapper input[type=range]{
-    width: 25%;
+    width: 35%;
     -webkit-appearance: none;
 }
 
@@ -79,11 +79,11 @@
 }
 
 .num-range{
-  margin-top: 80px;
+  margin-top: 105px;
 }
 
 .rotate-wrapper{
-  padding-top: 120px;
+  padding-top: 140px;
 }
 
 .output output{
@@ -105,6 +105,7 @@
   padding: 30px;
   margin: 10px;
   margin-top: 100px;
+  position: relative;
 }
 
 .ellipse {
@@ -117,18 +118,17 @@
   align-items: center;
   justify-content: space-around;
   position: relative;
+  box-shadow: 0px 5px 15px rgb(93, 93, 93), rgb(93, 93, 93) 0px 5px 15px inset;
 }
 
 .sun {
-  width: 40px;
-  height: 40px;
-  background: url('images/sun.jpg') no-repeat;
+  width: 50px;
+  height: 50px;
+  background: url('images/sun.png') no-repeat;
   background-size: 100%;
   transform: rotateX(30deg);
   border-radius: 50%;
   filter: blur(5px);
-  /* margin-right: 120px; */
-  /* margin-top: 50px; */
 }
 
 .earth {
@@ -150,4 +150,13 @@
   box-shadow: 0px 0px 20px 0px #000000;
   z-index: 3;
   filter: blur(0.5px);
+}
+
+.planet-date p {
+  color: rgb(241, 189, 92);
+  font-size: 23px;
+  position: absolute; 
+  right: 5%;
+  top: 10%;  
+  font-weight: bold;
 }
