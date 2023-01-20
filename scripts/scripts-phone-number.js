@@ -35,12 +35,12 @@ function calcA(angle) {
 
   if (angle < -2 || angle > 2) {
     if ((angle < 0 && speed <= 0) || (angle > 0 && speed >= 0)) {
-      // console.log("DOWN");
+      // DOWN
       a = g * (Math.sin(rads) * frictionCoef * Math.cos(rads));
 
       speed += a;
     } else if ((angle < 0 && speed >= 0) || (angle > 0 && speed <= 0)) {
-      // console.log("UP");
+      // UP
       a = g * (Math.sin(rads) * frictionCoef / 1.2 * Math.cos(rads));
 
       speed += a;
@@ -53,9 +53,7 @@ function calcA(angle) {
     }
   } else {
     speed *= 0.994;
-  }  
-
-  console.log(angle);
+  }
 }
 
 function toRadians (angle) {
